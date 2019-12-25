@@ -1,0 +1,36 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../../assets/person-24px.svg" id="icon" alt="User Icon" />
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group " id="login">
+                <input type="text" formControlName="username" placeholder="Username" class="form-control fadeIn second" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group" id="password">
+                <input type="password" formControlName="password" placeholder="Password" class="form-control fadeIn third" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+
+            <div class="form-group fadeIn fourth">
+                <button [disabled]="loading" class="btn btn-primary">Login</button>
+                <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+            </div>
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter" style="padding-top: 15px; padding-bottom: 15px;">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+
+            <p>All right's reserved <a class="underlineHover" target="_blank" href="http://vidyanidhi.com/">@VITA</a> </p>
+        </div>
+    </div>
+</div>
